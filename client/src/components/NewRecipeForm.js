@@ -1,6 +1,7 @@
 import React,{useState, useContext} from 'react'
 import { Link } from "react-router-dom";
 import { UserContext } from './user'
+import '../styles/Signup.css'
 
 
 export default function NewRecipeForm() {
