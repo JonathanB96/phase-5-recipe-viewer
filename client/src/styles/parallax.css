@@ -1,0 +1,114 @@
+/* @media (min-width: 700px){
+.parallax-1
+{
+    background-image: url("images/big-city.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 500px;
+    background-position: center;
+}
+.text-1
+{position: absolute;
+top: 250px;
+left:45%;
+background-color: #fff;
+
+
+}
+} */
+.home{
+    text-align: center;
+}
+.main-container
+{
+margin-top: 30px;
+    
+}
+.myButton{
+    color: white;
+    border-radius: 3px;
+    background: #ff6f00;
+    padding: 15px;
+    text-decoration: none;
+    margin-top: 20px;
+    max-width: 130px;
+ 
+}
+.myButton:hover{
+    color: #ff6f00;
+    background: white;
+    border: #ff6f00 solid 2px;
+}
+
+
+
+
+.parallax-1
+{
+    background-image: url(images/Easy-Dinner-Ideas-H.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-position: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+.text-1{
+    color: black;
+    background-color: white;
+    font-size: 1.7em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    text-align: center;   
+}
+.text-2
+{
+    color: white;
+    background-color: rgb(93, 52, 52);
+    font-size: 1.2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    text-align: center;  
+    margin-left: -40px;
+    
+}
+.parallax-2
+{
+    background-image: url(images/recipe.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-position: top center;
+    text-align: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.parallax-3
+{
+    background-image: url(images/easy-dish.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-position: top center;
+    text-align: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.parallax-4
+{
+    background-image: url(images/vegan-recipes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-position: top center;
+    text-align: center;
+    background-attachment: fixed;
+    position: relative;
+}

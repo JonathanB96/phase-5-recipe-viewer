@@ -9,6 +9,7 @@ import UserRecipes from './UserRecipes';
 import { Route, Switch } from "react-router-dom";
 import { UserContext } from './user'
 import React, {useState, useContext} from 'react'
+import '../styles/parallax.css'
 
 function App() {
   const { user, setUser } = useContext(UserContext);

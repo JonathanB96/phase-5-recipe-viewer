@@ -4,14 +4,14 @@ import { UserContext } from './user'
 export default function UserRecipes() {
   const { user, setUser } = useContext(UserContext);
 
-  useEffect(() => {
-    fetch(`/${user.id}/favorites`)
-      .then((r) => r.json())
-      .then((recipes)=>{
-        console.log(recipes)       
+  // useEffect(() => {
+  //   fetch(`/${user.id}/favorites`)
+  //     .then((r) => r.json())
+  //     .then((recipes)=>{
+  //       console.log(recipes)       
       
-      });
-  }, []);
+  //     });
+  // }, []);
   const [recipes, setRecipes] = useState([])
   const [recipeList, setRecipeList]= useState([])
   
