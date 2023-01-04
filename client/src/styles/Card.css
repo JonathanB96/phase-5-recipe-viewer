@@ -1,0 +1,100 @@
+.card{
+    
+    /* width: 25%; */
+    border: 1px solid black;
+   
+}
+#card-bottom{
+    margin-top: -60px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#edit-btn{
+    width: 50%;
+}
+.overlay
+{
+    background: rgba(255,255,255, 0.5);
+    height: 100%;
+    width: 190px;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#del-btn{
+    width: 190px;
+    background: rgb(255, 111, 0);
+    float: right;
+}
+.overlay2{
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  background: rgba(255,255,255, 0.5);
+    
+    width: 190px;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #000;
+    margin-left: -20px;
+   
+  }
+  @keyframes slideInLeft {
+  0% {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  visibility: visible;
+  }
+  100% {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  }
+  } 
+  
+  @-webkit-keyframes slideInLeft {
+  0% {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  visibility: visible;
+  }
+  100% {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  }
+  }
+
+
+h4
+{
+    border-bottom:  1px solid #ddd;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.card-btn{
+    background: #000;
+    width: 150px;
+   
+    /* margin: -44px 0px 100px 0px ; */
+  
+    /* position: absolute; */
+    z-index: 2;
+
+
+}
+.card-btn:hover{
+    background-color: #fff;
+    color: #3948CA;
+}
+.steps{
+    color: transparent;
+
+}

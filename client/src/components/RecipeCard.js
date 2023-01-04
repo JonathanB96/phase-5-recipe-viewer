@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import '../styles/Card.css'
 import { UserContext } from './user'
 
 export default function Card({recipe, recipeList, setRecipeList}) {
