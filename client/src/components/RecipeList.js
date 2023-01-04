@@ -1,6 +1,6 @@
 import React, {useState, useEffect}from 'react'
 import RecipeCard from './RecipeCard';
-
+import '../styles/RecipeList.css'
 export default function GameList() {
 
   const [recipes, setRecipes] = useState([])

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :recipes
   get '/me', to: 'users#show'
   get '/users', to: 'users#index'
+  post '/login', to: 'sessions#create'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

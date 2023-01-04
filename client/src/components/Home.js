@@ -19,15 +19,15 @@ export default function Home() {
         
        
         <div className="main-container">
-        {user? null:<Link to="/recipes" className='myButton'>See all recipes</Link>}
+        {/* {user? null:<Link to="/recipes" className='myButton'>See all recipes</Link>} */}
 
 
               <div className="parallax-1"> 
                   
               </div>
               <div className="text-1">
-                  <h1>Section one</h1>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora corporis ad, optio quasi molestiae esse nam saepe libero animi, ullam sit ipsa suscipit magni reiciendis dicta rerum, error rem! Nostrum?</div>
+                  <h1>All your quick recipes in one place</h1>
+              </div>
 
               </div>
               <div className="parallax-3"></div>
