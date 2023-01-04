@@ -1,6 +1,6 @@
 import React,{useEffect, useContext, useState} from 'react'
 import { UserContext } from './user'
-
+import '../styles/Tips.css'
 export default function Tips() {
     const { user, setUser } = useContext(UserContext);
     const [recipes, setRecipes]= useState([])

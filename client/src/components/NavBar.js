@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { NavLink, Link } from "react-router-dom";
 import { UserContext } from './user'
+import "../styles/NavBar.css"
 
 const linkStyles = {
     display: "inline-block",

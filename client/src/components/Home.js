@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import { UserContext } from './user'
 import {Link} from 'react-router-dom'
-
+import '../styles/parallax.css'
 
 
 
