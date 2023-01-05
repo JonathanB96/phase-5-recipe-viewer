@@ -29,5 +29,18 @@ class RecipesController < ApplicationController
         end 
         
     end
+    
+    def destroy
+        user = User.find_by(id: session[:user_id])
+        if user
+            recipe = user.recipes.find(params[:id])
+            recipe.destroy
+            head  :no_content 
+            
+        else
+            render json: {errors: ["unauthorized"]}, status: :unauthorized   
+        end 
+
+    end
 
 end
