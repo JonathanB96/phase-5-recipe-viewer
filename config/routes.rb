@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  post '/favorites', to: 'favorites#create'
+  get '/favorites', to: 'favorites#index'
+  delete '/favorites/:id', to: 'favorites#destroy'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
