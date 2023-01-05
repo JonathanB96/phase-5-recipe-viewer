@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
         end 
         
     end
-    
+
     def destroy
         user = User.find_by(id: session[:user_id])
         if user
@@ -41,6 +41,30 @@ class RecipesController < ApplicationController
             render json: {errors: ["unauthorized"]}, status: :unauthorized   
         end 
 
+    end
+
+    def update 
+        user = User.find_by(id: session[:user_id])
+        if user
+            recipe = user.recipes.find(params[:id])
+            recipe.update(params.permit(:steps))
+           render json: recipe
+            
+        else
+            render json: {errors: ["unauthorized"]}, status: :unauthorized   
+        end 
+        
+
+    end
+
+    private
+    
+    def recipe_params
+      params.permit(:name, :steps, :image_url, :user_id)
+    end
+
+    def not_found_response
+        render json: {error: "not found"}, status: :not_found
     end
 
 end

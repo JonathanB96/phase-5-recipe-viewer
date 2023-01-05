@@ -19,7 +19,7 @@ export default function Home() {
         
        
         <div className="main-container">
-        {/* {user? null:<Link to="/recipes" className='myButton'>See all recipes</Link>} */}
+        {user? null:<Link to="/recipes" className='myButton'>See all recipes</Link>}
 
 
               <div className="parallax-1"> 
@@ -27,6 +27,7 @@ export default function Home() {
               </div>
               <div className="text-1">
                   <h1>All your quick recipes in one place</h1>
+                  <Link to="/recipes" className='myButton'>See all recipes</Link>
               </div>
 
               </div>
