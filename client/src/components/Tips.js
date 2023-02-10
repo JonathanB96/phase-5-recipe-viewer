@@ -46,7 +46,7 @@ export default function Tips() {
                   <div className="text-2">
               If you’re just starting out in the kitchen, you might not know where to begin. But never fear — we’re here to help you along! Simple practices like making notes while you cook or substituting an ingredient when necessary can make a considerable difference. </div>
               
-                  <button class="myButton" onClick={download}>Download PDF file</button> <br/>
+                  <button id="myButton" onClick={download}>Download PDF file</button> <br/>
                   </div>
 
               </div>

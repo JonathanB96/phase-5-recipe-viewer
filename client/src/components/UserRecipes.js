@@ -3,6 +3,7 @@ import { UserContext } from './user'
 
 export default function UserRecipes() {
   const { user, setUser } = useContext(UserContext);
+  const [errors, setErrors] = useState([]) 
 
   // useEffect(() => {
   //   fetch(`/${user.id}/favorites`)
@@ -16,7 +17,7 @@ export default function UserRecipes() {
   const [recipeList, setRecipeList]= useState([])
   
   useEffect(() => {
-    fetch("/favorites")
+    fetch(`/users/${user.id}/favorites`)
       .then((r) => r.json())
       .then((recipes)=>{
         setRecipes(recipes)
@@ -56,7 +57,7 @@ export default function UserRecipes() {
               return <div key={recipe.id} title={recipe.id}>
                   <h2>{recipe.recipe_name}</h2>
                   <p>{recipe.recipe_steps}</p>
-                  <button className='myButton' onClick={deleteFavorite}>Delete</button>
+                  <button id='myButton' onClick={deleteFavorite}>Delete</button>
               </div>
             })}
            

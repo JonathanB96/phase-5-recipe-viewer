@@ -20,6 +20,7 @@ This App supports:
  * React.js
  * CSS
  * Ruby on Rails
+ * Bootstrap
 
 
 ## Usage

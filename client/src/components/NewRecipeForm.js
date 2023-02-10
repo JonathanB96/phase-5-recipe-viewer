@@ -1,7 +1,8 @@
 import React,{useState, useContext} from 'react'
 import { Link } from "react-router-dom";
 import { UserContext } from './user'
-import '../styles/Signup.css'
+import '../styles/AddRecipe.css'
+import Modal from './Modal';
 
 
 export default function NewRecipeForm() {
@@ -10,6 +11,7 @@ export default function NewRecipeForm() {
   const [steps, setSteps] = useState("")
   const { user, setUser } = useContext(UserContext);
   const [cuisine, setCuisine] = useState("")
+  const [errors, setErrors] = useState([]) 
 
   const formData = {
     name: "",
@@ -33,6 +35,7 @@ export default function NewRecipeForm() {
   }
 
   function handleCuisine(e){
+    setCuisine(!cuisine)
     setCuisine(e.target.value)
 
   }
@@ -51,14 +54,24 @@ export default function NewRecipeForm() {
         "Content-Type": "application/json",
         Accept: "application/json"},
       body: JSON.stringify(formData)
-    }).then((r)=>r.json())
-      .then((newReview)=>{
-        console.log(newReview)
+    }).then((r)=>{if (r.ok){
+      r.json().then((newRecipe)=>{
         setRecipeName("")
         setImgUrl("")
         setCuisine("")
         setSteps("")
-      })  
+      })
+    }
+    else {r.json().then((err) => setErrors(err.errors));}
+  })
+
+      // .then((newRecipe)=>{
+      //   console.log(newRecipe)
+      //   setRecipeName("")
+      //   setImgUrl("")
+      //   setCuisine("")
+      //   setSteps("")
+      // })  
     
     }
 
@@ -78,7 +91,7 @@ export default function NewRecipeForm() {
     value={imgUrl} id="imageUrl" placeholder="Image URL here"/>
 
 
-    <select value={cuisine} onChange={handleCuisine}>
+    <select value={cuisine} onChange={handleCuisine} >
       <option>Select cuisine</option>
       <option>American</option>
       <option>Global</option>
@@ -92,12 +105,21 @@ export default function NewRecipeForm() {
     <label>Steps</label>
     <textarea id="steps"  onChange ={handleSteps}
     value={steps} placeholder="Describe the steps of the recipe.." style={{height:"200px"}}></textarea>
-    <div> <input type="submit" value="Submit"/>
-    <Link to="/recipes" className='myButton'>See recipes</Link>
+    <div> <input type="submit" value="Submit" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal"/>
+    <Link to="/recipes" id='myButton'>See recipes</Link>{errors?errors.map((err) => (
+          <p id="error"key={err}>{err}</p>
+        )):""}
+    <div>
+    
     </div>
+    </div>
+    
+    
    
 
   </form>
+  
 </div> 
+
   </>
 }

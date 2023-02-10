@@ -7,12 +7,15 @@ export default function Card({recipe, recipeList, setRecipeList}) {
   const { user, setUser } = useContext(UserContext);
   const [newSteps, setNewSteps] = useState("")
   const [clickedRecipe, setRecipe] = useState(recipe)
-  //changing state when the btn is clicked
- 
+  const [error, setError] = useState("") 
+  const [fav, setFav] = useState(true)
+
+  
+  
+
   function handleClick(){
-    setBtn(!btn)   
-    console.log(recipe.user.username) 
-    console.log(user.username)
+    setBtn(!btn)  
+    
   }
 
   function handleDelete(){   
@@ -72,21 +75,30 @@ export default function Card({recipe, recipeList, setRecipeList}) {
         body: JSON.stringify({recipe_name: recipe.name,
         recipe_steps: recipe.steps, image_url: recipe.image_url, user_id: user.id, cuisine_id: recipe.cuisine_id})
       })
-      .then(r=>r.json())
-      .then((fav)=>{
-        console.log(fav) 
+      .then(r=>{
+        if(r.ok){
+          r.json().then(console.log(fav))
+        }
+        else{r.json().then((err) => {
+          setFav(!fav)
+          setError(err.error)})}
       })
+      // .then((fav)=>{
+      //   console.log(fav) 
+      // let btn2 = document.getElementById('favorite')
+      // btn2.display= "none"
+      // })
       }
     
 
 
   return <>
   <div className='card' style={{backgroundImage: `url(${recipe.image_url})`}}>
-  
+      
         <div className="overlay">
-            
+        
             <h4>{recipe.name}</h4>
-            <button id="favorite" onClick={addToFavorites}>Add to Favorites</button> 
+            {user?<button id="favorite" className ="btn btn-primary" onClick={addToFavorites}>{fav?"Add to Favorites":"Arleady added"}</button>:null} 
             <div className={!btn? "overlay2": "steps"}> 
               <p><small>{recipe.steps}</small></p>
               {user&&user.username===recipe.user.username?

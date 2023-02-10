@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+    rescue_from  ActiveRecord::RecordNotFound, with: :not_found_response
     def index
         recipes = Recipe.all 
         render json: recipes
@@ -17,12 +18,21 @@ class RecipesController < ApplicationController
 
         user = User.find_by(id: session[:user_id])
         if user
-    
+           
+            if params[:cuisine]==""
+                render json: {errors: ["Error: missing input"]}, status: :unauthorized
+                return nil
+            end
             recipe = Recipe.create(name: params[:name], 
             steps: params[:steps], image_url: params[:image_url],
             user_id: params[:user_id],
             cuisine_id: Cuisine.find_by("name LIKE ?", params[:cuisine]).id)
-            render json: recipe, status: :created
+            if recipe.valid?
+                render json: recipe, status: :created
+            else
+                render json: {errors: ["Error: missing input"]}, status: :unauthorized
+            end
+            
             
         else
             render json: {errors: ["unauthorized"]}, status: :unauthorized   

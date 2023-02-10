@@ -1,17 +1,23 @@
 class FavoritesController < ApplicationController
     def index 
-        # favorites = Favorite.where(user_id: params[:id])
-        favorites = Favorite.all
+        favorites = Favorite.where(user_id: params[:id])
+        
         render json: favorites
 
     end
 
     def create 
         user = User.find_by(id: session[:user_id])
-        if user    
-            favorite = Favorite.create(recipe_name: params[:recipe_name], recipe_steps: params[:recipe_steps],
+        if user 
+        
+            new_favorite = Favorite.create(recipe_name: params[:recipe_name], recipe_steps: params[:recipe_steps],
              image_url: params[:image_url], user_id: params[:user_id], cuisine_id: params[:cuisine_id])
-            render json: favorite, status: :created  
+             if new_favorite.valid?
+                render json: new_favorite, status: :created 
+             else
+                render json: {error: "Already added"}, status: :unauthorized
+             end  
+            
         else
             render json: {errors: ["unauthorized"]}, status: :unauthorized   
         end 

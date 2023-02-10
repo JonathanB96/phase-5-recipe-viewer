@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/favorites', to: 'favorites#create'
-  get '/favorites', to: 'favorites#index'
+  get '/users/:id/favorites', to: 'favorites#index'
   delete '/favorites/:id', to: 'favorites#destroy'
   get 'pages/download', to: 'pages#download'
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

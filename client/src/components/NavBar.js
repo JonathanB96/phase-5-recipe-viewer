@@ -106,7 +106,7 @@ export default function Header() {
   <div id="logo-div" style={{float :"right",
 marginRight: "10%", }}>
   {user?<Link to="/userRecipes"><img id="user-icon"src="https://drive.google.com/uc?id=1_OeQkvzmvITM5i4nYvqt5CSWVo51xvng"/></Link>:null}
-  <Link to="/"><h1 style={{color:"#fff", cursor : "pointer"}}>//Recipe Viewer</h1></Link>
+  <Link to="/"><h1 id="logo">//Recipe Viewer</h1></Link>
   </div>
  </nav>
   </>
