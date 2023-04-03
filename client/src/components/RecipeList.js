@@ -4,7 +4,7 @@ import '../styles/RecipeList.css'
 export default function GameList() {
 
   const [recipes, setRecipes] = useState([])
-  const [recipeList, setRecipeList]= useState([])
+  const [recipeList, setRecipeList]= useState(false)
   
   useEffect(() => {
     fetch("/recipes")
@@ -31,7 +31,9 @@ export default function GameList() {
     setRecipeList(filteredValues)
   }
  
-  
+  if (!recipeList){ return <div class="spinner-border text-primary" role="status">
+ <span class="visually-hidden">Loading...</span>
+</div>} else 
   return (<div id="wrapper">
             
             <div><input type="text" id='search' placeholder='Search for a recipe' onChange={handleSearch}/></div>

@@ -7,7 +7,15 @@
    gap: 0px;
    height: 100%;
 
+
   }
+
+  .spinner-border{
+    position: fixed;
+    top: 50%;
+    left: 50%;   
+    
+}
   #wrapper{
     margin-top: 22px;
   }
